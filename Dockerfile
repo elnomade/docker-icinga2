@@ -19,14 +19,14 @@
 # ******************************************************************************/
 
 FROM centos:centos7
+ENV REFRESHED_AT 2016-08-01
 
 MAINTAINER Icinga Development Team
 
 # for systemd
 ENV container docker
 
-RUN yum -y update; yum clean all; \
- yum -y install epel-release; yum clean all; \
+RUN yum -y install epel-release; \
  yum -y install http://packages.icinga.org/epel/7/release/noarch/icinga-rpm-release-7-1.el7.centos.noarch.rpm; yum clean all
 
 # docs are not installed by default https://github.com/docker/docker/issues/10650 https://registry.hub.docker.com/_/centos/
